@@ -1,4 +1,6 @@
 #!/usr/bin/env bats
+load helper
+
 @test "P01" {
 	run bash -c "cat ./tests/input01.txt | ./src/P01.sh"
 	[ "${status}" -eq 0 ]
@@ -26,5 +28,5 @@
 @test "P05" {
 	run bash -c "cat ./tests/input01.txt | ./src/P05.sh"
 	[ "${status}" -eq 0 ]
-	[ "${output}" = "$(cat ./tests/input01.txt | tail -r)" ]
+	[ "${output}" = "$(cat ./tests/input01.txt | tac)" ]
 }
